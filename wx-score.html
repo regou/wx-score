@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./document-register-element/build/document-register-element.js"></script>
+  <script src="./wx-score.js"></script>
+    <link rel="stylesheet" href="./css/score.css"/>
+    <style>
+        .inner{
+            max-width: 60vw;
+            margin: 0 auto;
+        }
+        .wraper{
+            text-align: center;
+            padding: 2em 0;
+        }
+        .comments{
+            text-align: center;
+        }
+        code{
+            background-color: rgb(233, 233, 233);
+            color: #0086B3;
+            padding: 1px 0.5em;
+            border: 1px solid lightgrey;
+            border-radius: 0.3em;
+        }
+        #tag{
+            font-weight: bold;
+            font-family: "Helvetica","Georgia",Arial;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<div class="inner">
+    <div class="wraper">
+        <wx-score id="score1" max="5" cur="2.5"></wx-score>
+    </div>
+    <div class="wraper">
+        <wx-score id="score2" max="4" cur="1"></wx-score>
+    </div>
+</div>
+
+<div class="comments inner">
+    <code id="tag">&lt;wx-score&gt; &lt;/wx-score&gt;</code>
+    <p>这里是个评分星星，试着用debugger去修改它们的<code>cur</code> 和 <code>max</code> 属性;</p>
+    <p>或者用js去修改 <code>document.getElementById('score1').cur</code></p>
+
+    <p>此范例支持IE9</p>
+</div>
+
+
+</body>
+</html>

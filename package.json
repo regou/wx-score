@@ -1,0 +1,22 @@
+{
+  "name": "wx-score",
+  "version": "0.0.1",
+  "description": "wx-score custom element",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/regou/wx-score.git"
+  },
+  "keywords": [
+    "custom element"
+  ],
+  "author": "admin@regou.me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/regou/wx-score/issues"
+  },
+  "homepage": "https://github.com/regou/wx-score",
+  "dependencies": {
+    "document-register-element": "0.0.8"
+  }
+}
