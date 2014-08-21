@@ -2,7 +2,7 @@
   "name": "wx-score",
   "version": "0.0.1",
   "description": "wx-score custom element",
-  "main": "index.html",
+  "main": "wx-score.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/regou/wx-score.git"
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/regou/wx-score/issues"
   },
-  "homepage": "https://github.com/regou/wx-score",
+  "homepage": "https://p-wxiao.rhcloud.com/myelements/wx-score/wx-score.html",
   "dependencies": {
     "document-register-element": "0.0.8"
   }
