@@ -3,16 +3,34 @@
 
     var proto = Object.create( HTMLElement.prototype );
 
+    //proto.changeHtml = function(max,cur){
+    //    var oneStar = '<div class="score-star-num${num} score-size-control ${state}">\n    <div class="score-oneStar"></div>\n</div>';
+    //    var html = "";
+    //    var dyeData = this.getDyeData();
+    //    console.log(dyeData)
+    //    for(var i=1;i<=max;i++){
+    //        html += (oneStar.replace('${num}',i).replace('${state}',(dyeData[i-1] || "")));
+    //    }
+    //
+    //    this.innerHTML = html;
+    //};
+
     proto.changeHtml = function(max,cur){
-        var oneStar = '<div class="score-star-num${num} score-size-control ${state}">\n    <div class="score-oneStar"></div>\n</div>';
-        var html = "";
-        var dyeData = this.getDyeData();
-        console.log(dyeData)
-        for(var i=1;i<=max;i++){
-            html += (oneStar.replace('${num}',i).replace('${state}',(dyeData[i-1] || "")));
+        while (this.firstChild) {
+            this.removeChild(this.firstChild);
         }
 
-        this.innerHTML = html;
+        for(var i=1; i <= max; i++){
+            var oneStar = document.createElement('score-star');
+            if (i <= cur) {
+                oneStar.setAttribute('state', 3);
+            } else if (i > Math.ceil(cur)) {
+                oneStar.setAttribute('state', 1);
+            } else {
+                oneStar.setAttribute('state', 2);
+            }
+            this.appendChild(oneStar);
+        }
     };
 
     proto.createdCallback = function() {
@@ -37,26 +55,6 @@
 
     };
 
-
-    proto.getDyeData = function() {/*染色Func*/
-        var cur = this.cur,max = this.max;
-        var stateData = (function(num){
-            var int = parseInt(num);
-            var addition = !!(num-int);
-            return {
-                full:int,
-                addHalf:addition
-            }
-        })(cur);
-        var stateArr =[];
-        for(var i = 1;i<=stateData.full;i++){
-            stateArr.push("state3");/*Full Star*/
-        }
-        if(stateData.addHalf){
-            stateArr.push("state2");/*Half Star*/
-        }
-        return stateArr;
-    };
     proto.updateScore = function(){
         this.readAttributes();
         this.changeHtml(this.max,this.cur);
